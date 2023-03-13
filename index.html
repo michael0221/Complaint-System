@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Complaint System</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="Learn the latest technologies and master in-demand skills in a hands-on, learning environment led by expert instructors.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="landing/assets/kisspng-babcock-university-university-of-ibadan-academic-d-5b1c90eb7b1f13.9715959815285987635043.png">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <!-- <link rel="stylesheet" href="landing/assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="landing/assets/css/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="landing/assets/css/vendor/font-gilroy.css"> -->
+
+    <!-- Plugins CSS (All Plugins Files) -->
+    <!-- <link rel="stylesheet" href="landing/assets/css/plugins/select2.min.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/perfect-scrollbar.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/ion.rangeSlider.min.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/photoswipe.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/photoswipe-default-skin.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/slick.css"> -->
+
+    <!-- Main Style CSS -->
+    <!-- <link rel="stylesheet" href="landing/assets/css/style.css"> -->
+
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing/assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="landing/assets/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="landing/assets/css/style.min.css">
+    <style>
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            #bgImg {
+                height: 190px !important;
+            }
+        }
+        @media only screen and (max-width: 765px) {
+            #bgImg {
+                height: 145px !important;
+            }
+        }
+        input[type="text"]:focus, input[type="url"]:focus {
+            border-color: #86b7fe !important;
+        }
+        .form-control:focus {
+            box-shadow: none;
+        }
+        .header-login a:hover, a:hover {
+            color: #0066FF;
+        }
+        .course .thumbnail .badge::before {
+            border-top: 19px solid #06F;
+            border-bottom: 19px solid #06F;
+        }
+        .course .thumbnail .badge {
+            background: #06F;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="page">
+        <!-- Header Section Start -->
+        <div class="header-section header-shadow sticky-header section" style="background: #484949;">
+            <div class="header-inner" style="background: #ededed;">
+                <div class="container position-relative">
+                    <div class="row justify-content-between align-items-center">
+
+                        <!-- Header Logo Start -->
+                        <div class="col-xl-3 col-auto">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img class="dark-logo" src="landing/assets/bu_logo_main.png"  alt="">
+                                    <!-- <img class="dark-logo" src="landing/assets/images/logo/dark-logo.png" alt="Learts Logo">
+                                    <img class="light-logo" src="landing/assets/images/logo/light-logo.png" alt="Learts Logo"> -->
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Header Logo End -->
+
+                        <!-- Header Main Menu Start -->
+                        <div class="col d-none d-xl-block position-static">
+                            <nav class="site-main-menu menu-hover-1">
+                                <ul>
+                                    <li>
+                                        <a href="#" onclick="showAjax('', '', 'page_content')">
+                                            <span class="menu-text">Home</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onclick="showAjax('', '', 'page_content')">
+                                            <span class="menu-text">About Us</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onclick="showAjax('', '', 'page_content')">
+                                            <span class="menu-text">Contact Us</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Header Main Menu End -->
+
+                        <!-- Header Right Start -->
+                        <div class="col-xl-3 col-auto">
+                            <div class="header-right">
+                                <div class="inner">
+
+                                    <!-- Header Login Start -->
+                                    <div class="header-login">
+                                        <a href="login.html">
+                                            <span class="menu-text">Sign in</span>
+                                        </a>
+                                    </div>
+                                    <div class="row px-lg-3 px-2">
+                                        <a href="signup.html"  class="btn btn-primary text-white" >
+                                            <span class="menu-text">Sign up</span>
+                                        </a>
+                                    </div>
+                                    <!-- Header Login End -->
+
+                                    <!-- Header Search Start -->
+                                    <!-- <div class="header-search">
+                                        <button class="header-search-toggle"><i class="far fa-search"></i></button>
+                                        <div class="header-search-form">
+                                            <form action="#">
+                                                <input type="text" placeholder="Search...">
+                                                <button><i class="fas fa-search"></i></button>
+                                            </form>
+                                        </div>
+                                    </div> -->
+                                    <!-- Header Search End -->
+
+
+                                    <!-- Header Mobile Menu Toggle Start -->
+                                    <div class="header-mobile-menu-toggle d-xl-none ml-sm-2">
+                                        <button class="toggle">
+                                            <i class="icon-top"></i>
+                                            <i class="icon-middle"></i>
+                                            <i class="icon-bottom"></i>
+                                        </button>
+                                    </div>
+                                    <!-- Header Mobile Menu Toggle End -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Header Right End -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Section End -->
+
+      
+        <div id="page_content">
+            <!-- Slider/Intro Section Start -->
+            <div class="intro2-section section" style="background: #ededed;">
+                <div class="container pb-5 pt-3">
+                    <div class="row row-cols-lg-2 row-cols-1 max-mb-n30">
+                        <!-- Intro One Content Start -->
+                        <div class="col align-self-center max-mb-30" data-aos="fade-up">
+                            <div class="intro2-content text-center text-md-start">
+                                <h2 class="title">Residence Hall Complaint Management System</h2>
+                                <div class="desc">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic beatae dolorum id laudantium quo quisquam laborum nam dignissimos ex!</p>
+                                </div>
+                                <!-- <div class="d-flex mt-3">
+                                    <a class="pe-3 text-primary" href="#"> <img src="landing/assets/images/vector1.png" class="" alt=""> Affordable fee </a>
+                                    <a class="text-warning" href="#"> <img src="landing/assets/images/vector2.png" class="" alt=""> Hybrid learning </a>
+                                </div> -->
+                                <div class="d-flex mt-5">
+                                    <!-- <input type="text" class="form-control w-md-50 me-2" placeholder="Enter your email to begin"> -->
+                                    <a href="./signup.html" class="btn btn-primary w-md-25 mt-0">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Intro One Content End -->
+    
+                        <!-- Intro One Course Start -->
+                        <div class="col max-mb-40 d-flex justify-content-center max-mt-20 " data-aos="fade-up">
+                            <img src="./landing/assets/SeekPng.com_students-png-transparent_2558393.png" width="60%" alt="">
+                        </div>
+                        <!-- Intro One Course End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Slider/Intro Section End -->
+    
+            <!-- Brand Section Start -->
+            
+    </div>
+
+    <!-- JS
+============================================ -->
+
+    <!-- Vendors JS -->
+    <!-- <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+<script src="assets/js/vendor/bootstrap.bundle.min.js"></script> -->
+
+    <!-- Plugins JS -->
+    <!-- <script src="assets/js/plugins/parallax.min.js"></script>
+<script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script> -->
+
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <script src="landing/assets/js/vendor/vendor.min.js"></script>
+    <script src="landing/assets/js/plugins/plugins.min.js"></script>
+
+    <!-- Main Activation JS -->
+    <script src="landing/assets/js/main.js"></script>
+    <script src="landing/assets/js/common.js"></script>
+    <script src="landing/assets/js/fingerprint.min.js"></script>
+    <script src="landing/assets/js/jQryfile.js"></script>
+
+</body>
+
+</html>
