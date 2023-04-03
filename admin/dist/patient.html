@@ -14,17 +14,17 @@
             <!--begin::Col-->
             <div class="col-xl-12">
                 <!--begin::List Widget 3-->
-                <div class="card card-xxl-stretch mb-xl-3 shadow-none">
+                <div class="card card-xxl-stretch mb-xl-3 shadow-none" style="background-color: #ededed;">
                     <div class="border-0 row mx-0 justify-content-between align-items-end mb-8 col-12 px-0">
                         <div class="col-md-9 row">
                             <!--begin::Name-->
                             <div class="d-flex fw-bolder text-secondary flex-wrap col-md-8 col-12">
-                                <h4 class="fs-2qx text-dark mb-0">Patients </h4>
-                                <span class="text-muted px-0 fs-6 fw-bold col-md-10 col-lg-12 mt-1">Easily set up your Patients.</span>
+                                <h4 class="fs-2qx text-dark mb-0">Complaints </h4>
+                                <span class="text-muted px-0 fs-6 fw-bold col-md-10 col-lg-12 mt-1">View all Complaints.</span>
                             </div>
                         </div>
                         <div class="col-md-3 d-flex justify-content-end my-auto">
-                            <a class="btn btn-primary rounded-1" onclick="showAjax('', 'add_patient.html', 'page_content');"><i class="bi bi-plus-circle"></i> Add New Patient</a>
+                            <a class="btn btn-primary rounded-1" onclick="showAjax('', 'add_patient.html', 'page_content');"><i class="bi bi-plus-circle"></i>Add New Complaints</a>
                         </div>
                     </div>
                     <!--end::Body-->
@@ -39,7 +39,7 @@
                     <!--begin::Heading-->
                     <div class="text-center p-20" style="background: #F8F7F8;">
                     <img src="assets/media/empty.png" class="" alt="no category" />
-                    <p class="text-gray-800 px-0 fs-5 py-5 fw-bold">No Patient to show yet. Add one</p>
+                    <p class="text-gray-800 px-0 fs-5 py-5 fw-bold">No Complaint to show yet. Add one</p>
                     </div>
                     <!--end::Heading-->
                 </div>
@@ -79,13 +79,13 @@
         $("#courseDiv").hide();
         $("#noCourseDiv").show();
     });
-    patientList();
+    // complaintList();
     // Get list of all courses
-    function patientList() {
+    function complaintList() {
         blockUI.block();
         return $.ajax({
             type: "GET",
-            url:  "https://covid-vaccine-system.herokuapp.com/patient/get-patients/",
+            url:  "",
             data: {
                 // userid: getItem("userid"),
                 // sessionid: getItem("sessionid"),

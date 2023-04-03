@@ -5,18 +5,18 @@
         <!--begin::Col-->
         <div class="col-xl-12">
             <!--begin::List Widget 3-->
-            <div class="card card-xxl-stretch mb-xl-3 shadow-none">
+            <div class="card card-xxl-stretch mb-xl-3 shadow-none" style="background-color: #ededed;">
                 <div class="row gy-5 gx-xl-8">
                     <div class="col-lg-12 ">
                         <div class="d-flex fw-bolder flex-wrap align-items-center">
                             <span>
                                 <a class="" href="javascript:void(0)"
-                                    onclick="showAjax('','category.html','page_content')">
+                                    onclick="showAjax('','patient.html','page_content')">
                                     <i class="bi bi-arrow-left-circle text-gray-800 me-5 fs-2x"></i>
                                 </a>
                             </span>
-                            <h4 class="fs-2qx mb-0" id="form_header">Add New Patient</h4>
-                            <span class="text-muted px-0 fs-6 fw-bold col-md-10 col-12 mt-1">Easily set up your Patients
+                            <h4 class="fs-2qx mb-0" id="form_header">Add New Complaint</h4>
+                            <span class="text-muted px-0 fs-6 fw-bold col-md-10 col-12 mt-1">Easily set up your Complaints
                             </span>
                         </div>
 
@@ -34,67 +34,36 @@
                 <div class="row">
                     <div class="row g-7">
                         <div class="col-md-6">
-                            <label for="patient_name" class="form-label">First Name</label>
+                            <label for="complaint_name" class="form-label">Complaint Name</label>
                             <input type="text" class="form-control form-control-solid inp" name="first_name"
-                                id="first_name" fields="first_name" placeholder="First Name">
+                                id="first_name" fields="first_name" placeholder="Complaint name">
                         </div>
                         <div class="col-md-6">
-                            <label for="category_type" class="form-label">Last Name</label>
-                            <input type="text" class="form-control form-control-solid inp" name="last_name"
-                                id="last_name" fields="last_name" placeholder="Last Name">
+                            <label class="required fs-5 fw-bold form-label">Category</label>
+                            <select class="form-select form-control form-control-solid" aria-label="Select example"
+                                id="category" name="category" fields="category">
+                                <option value="Capentary">Capentary</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Plumbing">Plumbing</option>
+                            </select>
                         </div>
+                        
                     </div>
 
                     <div class="row g-7">
-                        <div class="col-md-4">
-                            <label for="patient_name" class="form-label">Gender</label>
-                            <select class="form-select form-control form-control-solid" aria-label="Select example"
-                                id="gender" name="gender" fields="gender">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
+                        <div class="col-md-12">
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form6Example7">Additional information</label>
+                                <textarea class="form-control" id="details" rows="4"></textarea>
+                              </div>
                         </div>
-                        <div class="col-md-4">
-                            <label for="patient_name" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control form-control-solid inp" name="phone-number"
-                                id="phone_number" fields="phone_number" placeholder="Phone Number">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="category_type" class="form-label">Email</label>
-                            <input type="text" class="form-control form-control-solid inp" name="email" id="email"
-                                fields="email" placeholder="Email">
-                        </div>
+                        
                     </div>
-                    <div class="row g-7">
-                        <div class="col-md-4">
-                            <label class="required fs-5 fw-bold form-label">Genotype</label>
-                            <select class="form-select form-control form-control-solid" aria-label="Select example"
-                                id="genotype" name="genotype" fields="genotype">
-                                <option value="AA">AA</option>
-                                <option value="AS">AS</option>
-                                <option value="SS">SS</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="required fs-5 fw-bold form-label">Bloud Group</label>
-                            <select class="form-select form-control form-control-solid" aria-label="Select example"
-                                id="blood_group" name="blood_group" fields="blood_group">
-                                <option value="AA">O</option>
-                                <option value="B">B</option>
-                                <option value="A">A</option>
-                                <option value="AB">AB</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="required fs-5 fw-bold form-label">Age</label>
-                            <input type="text" class="form-control form-control-solid inp" name="age" id="age"
-                                fields="age" placeholder="Age">
-                        </div>
-                    </div>
+                   
                     <div class="row g-7">
                         <div class="col-md-12">
-                            <a class="btn btn-primary" onclick="addPatient()" id="form_button"><i
-                                    class="bi bi-check-lg text-white"></i> Add Patient</a>
+                            <a class="btn btn-primary" onclick="addCoomplaint()" id="form_button"><i
+                                    class="bi bi-check-lg text-white"></i>Submit Complaint</a>
                         </div>
                     </div>
                 </div>
@@ -113,17 +82,12 @@
     });
 
     // Add courses
-    function addPatient() {
-        let firstname = $("#first_name").val();
-        let lastname = $("#last_name").val();
-        let phone_number = $("#phone_number").val();
-        let genotype = $("#genotype").val();
-        let email = $("#email").val();
-        let age = $("#age").val();
-        let bloodgroup = $("#blood_group").val();
-        let gender = $("#gender").val();
-        if (firstname == "") {
-            toastr["error"]("Enter firstname");
+    function addComplaint() {
+        let complaintname = $("#complaint_name").val();
+        let category = $("#category").val();
+        let details = $("#details").val();
+        if (complaintname == "") {
+            toastr["error"]("Enter complaintname");
         } else if (lastname == "") {
             toastr["error"]("Enter lastname");
         } else if (phone_number == "") {
@@ -154,7 +118,7 @@
     if (form.length > 0) {
         return $.ajax({
             type: "POST",
-            url: "https://covid-vaccine-system.herokuapp.com/patient/add-patient/",
+            url: "",
             data: {
                 // token: getItem("token"),
                 first_name: firstname,
