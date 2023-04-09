@@ -82,8 +82,8 @@
 								
 								<!--begin::Input group-->
 								<div class="fv-row mb-7">
-									<label for="username" class="form-label fw-bolder text-dark fs-6">Matric Number</label>
-									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="Enter your matric number" id="matric" name="matric" autocomplete="off">
+									<label for="username" class="form-label fw-bolder text-dark fs-6">Email Address</label>
+									<input class="form-control form-control-lg form-control-solid" type="email" placeholder="Enter your Email Address" id="email" name="email" autocomplete="off">
 								</div>
 								<!--end::Input group-->
 								<!--begin::Input group-->
@@ -180,10 +180,10 @@
 			let password;
 
 			function login() {
-				var matric = $("#matric").val();
+				var email = $("#email").val();
 				var password = $("#password").val();
-				if (matric == "") {
-					toastr["error"]("Enter matric number");
+				if (email == "") {
+					toastr["error"]("Enter Email Address");
 				} else if (password == "") {
 					toastr["error"]("Enter password");
 				} else {
@@ -193,7 +193,7 @@
 					// $.ajax({
 					// 	url: "",
 					// 	data: {
-					// 		matric: matric,
+					// 		email: email,
 					// 		password: password,
 							
 					// 	},
