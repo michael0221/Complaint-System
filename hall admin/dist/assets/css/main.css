@@ -1,0 +1,61 @@
+/* Button Color & Style (Solid & Outline) */
+.btn-primary {
+    border-color: #ef2c2c !important;
+    background-color: #ef2c2c !important;
+    color: #FFFFFF;
+  }
+  .btn.btn-primary:hover:not(.btn-active), .btn-primary:hover, .btn.btn-primary:focus {
+    border-color: transparent;
+    /* background-color: #1a8d7a; */
+    background-color: #ef2c2c !important;
+    color: #FFFFFF;
+  }
+  
+  .btn-outline-primary {
+    color: #0066FF !important;
+    border-color: #0066FF !important;
+    background-color: transparent;
+  }
+  .btn-outline-primary:hover {
+    border-color: transparent;
+    background-color: #0066FF !important;
+    color: #FFFFFF;
+  }
+  .bg-primary {
+    background-color: #ef2c2c !important;
+  }
+  .bg-light-primary {
+    background-color: #ff000014 !important;
+  }
+  
+  .text-primary {
+    color: #ef2c2c !important;
+  }
+  .menu-state-title-primary .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) .menu-title, .menu-state-icon-primary .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) .menu-icon {
+    color: #ef2c2c !important;
+  }
+  
+  .text_dark {
+    color: #030749 !important;
+  }
+
+.rnd-icon {
+    height: 21px!important;
+    width: 21px!important;
+    border-radius: 8px!important;
+    padding: 5px!important;
+}
+
+.page-item.active .page-link {
+  color: #fff;
+  background-color: #ef2c2c;
+  border-color: transparent;
+}
+
+.swal2-icon {
+  border: none !important;
+}
+
+.menu-state-icon-primary .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) .menu-icon .svg-icon, .menu-state-icon-primary .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) .menu-icon i {
+  color: #ef2c2c !important;
+}

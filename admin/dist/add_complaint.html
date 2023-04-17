@@ -1,0 +1,179 @@
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <div id="kt_content_container" class="container-fluid">
+        <!--begin::Col-->
+        <div class="col-xl-12">
+            <!--begin::List Widget 3-->
+            <div class="card card-xxl-stretch mb-xl-3 shadow-none" style="background-color: #ededed;">
+                <div class="row gy-5 gx-xl-8">
+                    <div class="col-lg-12 ">
+                        <div class="d-flex fw-bolder flex-wrap align-items-center">
+                            <span>
+                                <a class="" style="cursor: pointer;"
+                                    onclick="showAjax('','complaint.html','page_content')">
+                                    <i class="bi bi-arrow-left-circle text-gray-800 me-5 fs-2x"></i>
+                                </a>
+                            </span>
+                            <h4 class="fs-2qx mb-0" id="form_header">Add New Complaint</h4>
+                            <span class="text-muted px-0 fs-6 fw-bold col-md-10 col-12 mt-1">Easily set up your
+                                Complaints
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--end:List Widget 3-->
+        </div>
+        <!--end::Col-->
+
+        <!--begin::Wrapper-->
+        <div class="col-xl-12 mb-3">
+            <!--begin::Form-->
+            <form class="form" id="create_complaint">
+                <div class="row">
+                    <div class="row g-7">
+                        <div class="col-md-6">
+                            <label for="complaint_name" class="form-label">Complaint Name</label>
+                            <input type="text" class="form-control form-control-solid inp" name="first_name"
+                                id="complaint_name" fields="complaint_name" placeholder="Complaint name">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="required fs-5 fw-bold form-label">Category</label>
+                            <select class="form-select form-control form-control-solid" aria-label="Select example"
+                                id="category" name="category"  fields="category">
+                                <option value="Capentary">Capentary</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Plumbing">Plumbing</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row g-7">
+                        <div class="col-md-12">
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form6Example7">Additional information</label>
+                                <textarea class="form-control" id="details" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row g-7">
+                        <div class="col-md-12">
+                            <a class="btn btn-primary" onclick="testaddcomplaint()" id="form_button"><i
+                                    class="bi bi-check-lg text-white"></i>Submit Complaint</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!--end::Form-->
+        </div>
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Container-->
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.form-select').select2();
+
+    });
+
+
+    function testaddcomplaint() {
+        let complaintname = $("#complaint_name").val();
+        let category = $("#category").val();
+        let details = $("#details").val();
+        if (complaintname == "") {
+            toastr["error"]("Enter complaint name");
+        } else if (category == "") {
+            toastr["error"]("Enter Category");
+        } else if (details == "") {
+            toastr["error"]("Enter Additional Information");
+        } else{
+            Swal.fire({
+            title: "Complaint System",
+            html: "Complaint added successfully",
+            icon: "success",
+            buttonsStyling: false,
+            confirmButtonText: "Ok, got it!",
+            customClass: { confirmButton: "btn btn-primary" },
+        });
+        showAjax("", "complaint.html", "page_content");
+        }
+
+       
+    }
+    // Add complaint
+    function addComplaint() {
+        let complaintname = $("#complaint_name").val();
+        let category = $("#category").val();
+        let details = $("#details").val();
+        if (complaintname == "") {
+            toastr["error"]("Enter complaint name");
+        } else if (category == "") {
+            toastr["error"]("Enter Category");
+        } else if (details == "") {
+            toastr["error"]("Enter Additional Information");
+        } else {
+            blockUI.block();
+            complaintname = $("#complaint_name").val();
+            category = $("#category").val();
+            details = $("#details").val();
+
+            var form = $("#create_complaint");
+            // var formData = readFormData($("#create_patient"), true).data;
+            if (form.length > 0) {
+                return $.ajax({
+                    type: "POST",
+                    url: "",
+                    data: {
+                        // token: getItem("token"),
+                        compliant_name: complaintname,
+                        details: details,
+                        category: category,
+                        // datafields: formData,
+                    },
+                    // headers: {
+                    //     "Content-Type": "application/json",
+                    //     "Authorization": "Token " + newQueryString("token"),
+                    // },
+                    success: (response) => {
+                        try {
+                            // $.unblockUI("hide");
+                            // var json = JSON.parse(response);
+                            blockUI.release();
+                            if (response.status == 200) {
+                                Swal.fire({
+                                    title: "Complaint System",
+                                    html: "Complaint added successfully",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: { confirmButton: "btn btn-primary" },
+                                });
+                                showAjax("", "complaint.html", "page_content");
+                            } else {
+                                Swal.fire({
+                                    title: "Complaint System",
+                                    html: "Error",
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: { confirmButton: "btn btn-primary" },
+                                });
+                                // $.unblockUI("hide");
+                            }
+                        } catch (e) {
+                            console.error(e.stack);
+                        }
+                    },
+                });
+            }
+        }
+
+    }
+</script>
