@@ -154,7 +154,7 @@
 							<!--end::Input group-->
 							<!--begin::Actions-->
 							<div class="text-center">
-								<button type="button" id="kt_sign_up_submit" onclick="preRegister();"
+								<button type="button" id="kt_sign_up_submit" onclick="Register();"
 									class="btn btn-lg btn-primary w-100 rounded fw-normal">
 									<span class="indicator-label">Create an account</span>
 									<span class="indicator-progress">Please wait...
@@ -297,7 +297,7 @@
 
 	$("#kt_sign_up_form").attr("disabled", true);
 
-	function preRegister() {
+	function Register(){
 		$('#kt_sign_up_form').find(".form-control").each((e, r) => {
 			if (r.value == '' || !r.value) return;
 		});
@@ -309,19 +309,28 @@
 		phoneno = $("#phoneno").val();
 		password = $("#password").val();
 		confirm_password = $("#confirm_password").val();
- 
-		$.ajax({
-			url: "",
-			type: "POST",
-			dataType: "text",
-			data: {
-				first_name: firstname,
-				last_name: lastname,
-				username: username,
-				matric: matric,
+		var newdata = {
+				firstname: firstname,
+				lastname: lastname,
+				othername: "",
+				student: {
+					hall: "",
+					room_number: "",
+					matric: matric,
+				},
+				email: username,
+				gender: "",
 				password: password,
-				confirm_password: confirm_password
-			},
+				password2: confirm_password,
+				profile_picture: ""
+			};
+			var datajson = JSON.stringify(newdata)
+		$.ajax({
+			url: "https://residence-complaint-mgt-production-553f.up.railway.app/api/students/register/",
+			type: "POST",
+			dataType: "json",
+			data: datajson,
+			ContentType: "application/json",
 			success: function (response) {
 				try {
 					if (response.status == 200) {
