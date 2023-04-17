@@ -309,40 +309,43 @@
 		phoneno = $("#phoneno").val();
 		password = $("#password").val();
 		confirm_password = $("#confirm_password").val();
-		var newdata = {
-				firstname: firstname,
-				lastname: lastname,
-				othername: "",
-				student: {
-					hall: "",
-					room_number: "",
-					matric: matric,
-				},
-				email: username,
-				gender: "",
-				password: password,
-				password2: confirm_password,
-				profile_picture: ""
-			};
-			var datajson = JSON.stringify(newdata)
+		
 		$.ajax({
 			url: "https://residence-complaint-mgt-production-553f.up.railway.app/api/students/register/",
 			type: "POST",
-			dataType: "json",
-			data: datajson,
-			ContentType: "application/json",
+			data:  {
+				firstname: firstname,
+				lastname: lastname,
+				othername: "osa",
+				email: username,
+				student: {
+					hall: "Samuel Akande",
+					room_number: "Tf09",
+					matric: matric,
+				},
+				// gender: "Male",
+				password: password,
+				password2: confirm_password,
+				profile_picture: ""
+			},
 			success: function (response) {
 				try {
 					if (response.status == 200) {
-						callSweetMsg("Account Created", "Complaint System", "success");
-						hideForms();
-						navigatePins();
-						$("#kt_sign_up_form").hide();
-						$("#confirm-form").show();
+						callSweetMsg("Account Created", "Complaint System", "success");			
+						// $("#kt_sign_up_form").hide();
+						// $("#confirm-form").show();
 							// $.unblockUI();
 						// window.location.href = "user.html" + "?" + $.param(ret);
 					} else {
 						callSweetMsg("Error", "Complaint System", "error");
+						Swal.fire({
+										title: "Complaint System",
+										html: response,
+										icon: "error",
+										buttonsStyling: true,
+										confirmButtonText: "Ok, got it!",
+										customClass: { confirmButton: "btn-sm btn-primary" },
+									});
 						$("#kt_sign_up_submit").html("Processing...");
 					}
 				} catch (e) {
