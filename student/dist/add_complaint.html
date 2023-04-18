@@ -63,7 +63,7 @@
 
                     <div class="row g-7">
                         <div class="col-md-12">
-                            <a class="btn btn-primary" onclick="testaddcomplaint()" id="form_button"><i
+                            <a class="btn btn-primary" onclick="addComplaint()" id="form_button"><i
                                     class="bi bi-check-lg text-white"></i>Submit Complaint</a>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                     type: "POST",
                     url: "https://residence-complaint-mgt-production-553f.up.railway.app/api/complaints/create/",
                     data: {
-                        // token: getItem("token"),
+                        token: getItem("token"),
                         compliant_name: complaintname,
                         details: details,
                         category: category,
@@ -141,12 +141,12 @@
                     //     "Content-Type": "application/json",
                     //     "Authorization": "Token " + newQueryString("token"),
                     // },
-                    success: (response) => {
+                    success: (response, textStatus, jqXHR) => {
                         try {
                             // $.unblockUI("hide");
                             // var json = JSON.parse(response);
                             blockUI.release();
-                            if (response.status == 200) {
+                            if (jqXHR.status === 200 ) {
                                 Swal.fire({
                                     title: "Complaint System",
                                     html: "Complaint added successfully",
